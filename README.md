@@ -89,3 +89,17 @@ The most challenging part was ensuring the navigation worked well on both mobile
 ---
 
 ##  Project Structure
+src/
+  components/
+    Navbar.js      - Responsive navbar with hamburger menu
+    Footer.js      - Footer with links and contact info
+  pages/
+    Home.js              - Landing page with hero and features
+    Login.js             - Login form with validation
+    Register.js          - Registration form
+    WorkshopList.js      - Browse workshops with search and filter
+    WorkshopDetails.js   - Individual workshop detail page
+    ProposeWorkshop.js   - Form to propose a workshop
+    ViewProfile.js       - User profile page
+  App.js           - Main app with routing
+  App.css          - Global reset and base styles
