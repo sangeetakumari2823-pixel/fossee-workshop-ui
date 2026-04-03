@@ -1,70 +1,91 @@
-# Getting Started with Create React App
+# FOSSEE Workshop Booking - UI/UX Redesign
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern, mobile-first redesign of the FOSSEE Workshop Booking portal using React.
 
-## Available Scripts
+##  Original Repository
+https://github.com/FOSSEE/workshop_booking
 
-In the project directory, you can run:
+---
 
-### `npm start`
+##  Setup Instructions
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Prerequisites
+- Node.js (v16 or above)
+- npm
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Installation
+```bash
+git clone https://github.com/sangeetakumari2823-pixel/fossee-workshop-ui.git
+cd fossee-workshop-ui
+npm install
+npm start
+```
+Open http://localhost:3000 in your browser.
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+##  Design Principles
 
-### `npm run build`
+**1. Mobile-First Design**
+The original site was not optimized for mobile. Since students primarily access this on phones, every component was designed for small screens first and then scaled up for desktop.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**2. Visual Hierarchy**
+Clear typographic scale, consistent spacing, and color contrast guide the user's eye naturally from the most important content to supporting details.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**3. Accessibility**
+Semantic HTML elements, sufficient color contrast ratios, and large tap targets (minimum 48px) ensure the site is usable by everyone including users with disabilities.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**4. Consistency**
+A single color system (primary blue #1a73e8, dark #1a1a2e) is used throughout, creating a cohesive and professional look.
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+##  Responsiveness
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Used CSS Flexbox with `flexWrap: wrap` so layouts adapt naturally on all screen sizes
+- Navbar collapses into a hamburger menu on mobile
+- Cards stack vertically on small screens and form grids on larger screens
+- Minimum font size of 14px for readability on small displays
+- All buttons have enough padding for comfortable touch interaction
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+##  Trade-offs
 
-## Learn More
+- **No external CSS frameworks**: Chose plain CSS-in-JS (inline styles) to keep bundle size minimal and avoid loading Bootstrap or Tailwind. Trade-off is slightly more verbose code.
+- **No animations**: Skipped heavy animation libraries to maintain fast load times. Simple hover effects only.
+- **Static data**: Workshop data is hardcoded as the backend is Django-based. In production this would connect via REST API.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+##  Most Challenging Part
 
-### Code Splitting
+The most challenging part was ensuring the navigation worked well on both mobile and desktop without using any external UI library. I implemented a hamburger menu using React's useState hook to toggle the mobile menu open and closed, while keeping the desktop layout unchanged.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
+## Screenshots
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Before (Original Django Site)
+*Minimal, unstyled, not mobile-friendly*
 
-### Making a Progressive Web App
+### After (React Redesign)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+**Home Page**
+- Modern hero section with gradient background
+- Feature cards with icons
+- Workshop preview cards
+- Call-to-action section
 
-### Advanced Configuration
+**Workshop List**
+- Search functionality
+- Category filter buttons
+- Responsive card grid
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+**Login & Register**
+- Clean form design
+- Proper validation feedback
 
-### Deployment
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+##  Project Structure
