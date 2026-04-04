@@ -7,20 +7,24 @@ function Navbar() {
   return (
     <nav style={styles.nav}>
       <div style={styles.logo}>
-        <Link to="/">FOSSEE Workshops</Link>
+        <div style={styles.logoIcon}>F</div>
+        <Link to="/" style={styles.logoText}>FOSSEE</Link>
       </div>
 
-      {/* Hamburger for mobile */}
       <button style={styles.hamburger} onClick={() => setMenuOpen(!menuOpen)}>
-        ☰
+        {menuOpen ? '✕' : '☰'}
       </button>
 
       <ul style={{ ...styles.navLinks, ...(menuOpen ? styles.navOpen : {}) }}>
-        <li><Link to="/" onClick={() => setMenuOpen(false)}>Home</Link></li>
-        <li><Link to="/types" onClick={() => setMenuOpen(false)}>Workshops</Link></li>
-        <li><Link to="/propose" onClick={() => setMenuOpen(false)}>Propose</Link></li>
-        <li><Link to="/profile" onClick={() => setMenuOpen(false)}>Profile</Link></li>
-        <li><Link to="/login" onClick={() => setMenuOpen(false)} style={styles.loginBtn}>Login</Link></li>
+        <li><Link to="/" style={styles.navLink} onClick={() => setMenuOpen(false)}>Home</Link></li>
+        <li><Link to="/types" style={styles.navLink} onClick={() => setMenuOpen(false)}>Workshops</Link></li>
+        <li><Link to="/propose" style={styles.navLink} onClick={() => setMenuOpen(false)}>Propose</Link></li>
+        <li><Link to="/profile" style={styles.navLink} onClick={() => setMenuOpen(false)}>Profile</Link></li>
+        <li>
+          <Link to="/login" style={styles.loginBtn} onClick={() => setMenuOpen(false)}>
+            Login →
+          </Link>
+        </li>
       </ul>
     </nav>
   );
@@ -28,46 +32,76 @@ function Navbar() {
 
 const styles = {
   nav: {
-    backgroundColor: '#1a73e8',
-    padding: '0 24px',
+    backgroundColor: 'white',
+    padding: '14px 28px',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
-    height: '64px',
     position: 'sticky',
     top: 0,
     zIndex: 1000,
-    boxShadow: '0 2px 8px rgba(0,0,0,0.2)',
+    borderBottom: '2px solid #F0E6FF',
   },
   logo: {
-    color: 'white',
-    fontSize: '20px',
-    fontWeight: 'bold',
+    display: 'flex',
+    alignItems: 'center',
+    gap: '10px',
+  },
+  logoIcon: {
+    width: '34px',
+    height: '34px',
+    background: '#5B21B6',
+    borderRadius: '10px',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    color: '#FFD700',
+    fontWeight: '800',
+    fontSize: '17px',
+  },
+  logoText: {
+    color: '#1C0A4A',
+    fontSize: '16px',
+    fontWeight: '700',
   },
   hamburger: {
     display: 'none',
     background: 'none',
     border: 'none',
-    color: 'white',
-    fontSize: '24px',
+    color: '#1C0A4A',
+    fontSize: '22px',
     cursor: 'pointer',
   },
   navLinks: {
     listStyle: 'none',
     display: 'flex',
-    gap: '24px',
+    gap: '22px',
     alignItems: 'center',
-    color: 'white',
+  },
+  navLink: {
+    color: '#3D2070',
+    fontSize: '14px',
+    fontWeight: '600',
   },
   loginBtn: {
-    backgroundColor: 'white',
-    color: '#1a73e8',
-    padding: '8px 16px',
-    borderRadius: '20px',
-    fontWeight: 'bold',
+    backgroundColor: '#5B21B6',
+    color: 'white',
+    padding: '8px 20px',
+    borderRadius: '12px',
+    fontSize: '13px',
+    fontWeight: '700',
   },
   navOpen: {
     display: 'flex',
+    flexDirection: 'column',
+    position: 'absolute',
+    top: '64px',
+    left: 0,
+    right: 0,
+    backgroundColor: 'white',
+    padding: '20px',
+    borderBottom: '2px solid #F0E6FF',
+    gap: '16px',
   },
 };
 
